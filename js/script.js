@@ -29,6 +29,8 @@ function loadingImages() {
     if (loadedCharacter && loadedShadow) {
         loadedCharacter = false;
         loadedShadow = false;
+        character.style.transform = 'translateX(0)';
+        shadow.style.transform = 'translateX(0)';
         leftQuestionMark.style.transform = 'translateX(0)';
         rightQuestionMark.style.transform = 'translateX(0)';
         sign.style.transform = 'translateX(0)';
@@ -39,10 +41,8 @@ function loadingImages() {
 function changeImages2() {
     character.alt = characterName + " - character";
     character.src = "./img/" + characterName + "/character.png";
-    character.style.transform = '';
     shadow.alt = characterName + " - shadow";
     shadow.src = "./img/" + characterName + "/shadow.png";
-    shadow.style.transform = '';
     if (characterName === 'okayu') {
         leftQuestionMark.style.opacity = '1';
         rightQuestionMark.style.opacity = '1';
@@ -98,11 +98,11 @@ function keyboardCheck(event) {
 leftArrow === null || leftArrow === void 0 ? void 0 : leftArrow.addEventListener('click', leftArrowClick);
 rightArrow === null || rightArrow === void 0 ? void 0 : rightArrow.addEventListener('click', rightArrowClick);
 document.addEventListener('keydown', keyboardCheck);
-character.addEventListener('loadend', function () {
+character.addEventListener('load', function () {
     loadedCharacter = true;
     loadingImages();
 });
-shadow.addEventListener('loadend', function () {
-    loadedShadow = true;
+shadow.addEventListener('load', function () {
+    loadedCharacter = true;
     loadingImages();
 });
