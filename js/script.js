@@ -56,14 +56,6 @@ function changeImages2() {
         signShadow.style.opacity = '0';
     }
     character.removeEventListener('transitionend', changeImages2);
-    character.addEventListener('load', function () {
-        loadedCharacter = true;
-        loadingImages();
-    });
-    shadow.addEventListener('load', function () {
-        loadedShadow = true;
-        loadingImages();
-    });
 }
 function changeImages1() {
     characterName = names[orderNumber];
@@ -106,3 +98,11 @@ function keyboardCheck(event) {
 leftArrow === null || leftArrow === void 0 ? void 0 : leftArrow.addEventListener('click', leftArrowClick);
 rightArrow === null || rightArrow === void 0 ? void 0 : rightArrow.addEventListener('click', rightArrowClick);
 document.addEventListener('keydown', keyboardCheck);
+character.addEventListener('load', function () {
+    loadedCharacter = true;
+    loadingImages();
+});
+shadow.addEventListener('load', function () {
+    loadedShadow = true;
+    loadingImages();
+});
