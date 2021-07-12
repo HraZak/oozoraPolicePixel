@@ -19,9 +19,22 @@ var orderNumber = 0;
 var canClick = true;
 var transformText = 'translateX(calc(+50vw + 50%))';
 var characterName = names[orderNumber];
+var loadedCharacter = false;
+var loadedShadow = false;
 function changeImages3() {
     canClick = true;
     character.removeEventListener('transitionend', changeImages3);
+}
+function loadingImages() {
+    if (loadedCharacter && loadedShadow) {
+        loadedCharacter = false;
+        loadedShadow = false;
+        leftQuestionMark.style.transform = 'translateX(0)';
+        rightQuestionMark.style.transform = 'translateX(0)';
+        sign.style.transform = 'translateX(0)';
+        signShadow.style.transform = 'translateX(0)';
+        character.addEventListener('transitionend', changeImages3);
+    }
 }
 function changeImages2() {
     character.alt = characterName + " - character";
@@ -42,12 +55,15 @@ function changeImages2() {
         sign.style.opacity = '0';
         signShadow.style.opacity = '0';
     }
-    leftQuestionMark.style.transform = 'translateX(0)';
-    rightQuestionMark.style.transform = 'translateX(0)';
-    sign.style.transform = 'translateX(0)';
-    signShadow.style.transform = 'translateX(0)';
     character.removeEventListener('transitionend', changeImages2);
-    character.addEventListener('transitionend', changeImages3);
+    character.addEventListener('load', function () {
+        loadedCharacter = true;
+        loadingImages();
+    });
+    shadow.addEventListener('load', function () {
+        loadedShadow = true;
+        loadingImages();
+    });
 }
 function changeImages1() {
     characterName = names[orderNumber];
