@@ -42,10 +42,10 @@ function changeImages2() {
         sign.style.opacity = '0';
         signShadow.style.opacity = '0';
     }
-    leftQuestionMark.style.transform = '';
-    rightQuestionMark.style.transform = '';
-    sign.style.transform = '';
-    signShadow.style.transform = '';
+    leftQuestionMark.style.transform = 'translateX(0)';
+    rightQuestionMark.style.transform = 'translateX(0)';
+    sign.style.transform = 'translateX(0)';
+    signShadow.style.transform = 'translateX(0)';
     character.removeEventListener('transitionend', changeImages2);
     character.addEventListener('transitionend', changeImages3);
 }
