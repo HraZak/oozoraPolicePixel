@@ -98,11 +98,11 @@ function keyboardCheck(event) {
 leftArrow === null || leftArrow === void 0 ? void 0 : leftArrow.addEventListener('click', leftArrowClick);
 rightArrow === null || rightArrow === void 0 ? void 0 : rightArrow.addEventListener('click', rightArrowClick);
 document.addEventListener('keydown', keyboardCheck);
-character.addEventListener('load', function () {
+character.addEventListener('loadend', function () {
     loadedCharacter = true;
     loadingImages();
 });
-shadow.addEventListener('load', function () {
+shadow.addEventListener('loadend', function () {
     loadedShadow = true;
     loadingImages();
 });
