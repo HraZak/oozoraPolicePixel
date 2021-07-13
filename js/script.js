@@ -30,8 +30,8 @@ function loadingImages() {
     if (loadedCharacter && loadedShadow) {
         loadedCharacter = false;
         loadedShadow = false;
-        character.style.transform = '';
-        shadow.style.transform = '';
+        character.style.transform = 'translateX(0)';
+        shadow.style.transform = 'translateX(0)';
         if (characterName === 'okayu') {
             leftQuestionMark.style.transform = 'translateX(0)';
             rightQuestionMark.style.transform = 'translateX(0)';
@@ -46,13 +46,25 @@ function changeImages2() {
     character.src = "./img/" + characterName + "/character.png";
     shadow.alt = characterName + " - shadow";
     shadow.src = "./img/" + characterName + "/shadow.png";
+    if (characterName === 'okayu') {
+        leftQuestionMark.style.opacity = '1';
+        rightQuestionMark.style.opacity = '1';
+        sign.style.opacity = '1';
+        signShadow.style.opacity = '1';
+    }
+    else {
+        leftQuestionMark.style.opacity = '0';
+        rightQuestionMark.style.opacity = '0';
+        sign.style.opacity = '0';
+        signShadow.style.opacity = '0';
+    }
     character.removeEventListener('transitionend', changeImages2);
 }
 function changeImages1() {
     characterName = names[orderNumber];
     character.style.transform = transformText;
     shadow.style.transform = transformText;
-    if (names[orderNumber + 1] === 'okayu' || names[orderNumber] === 'okayu' || names[orderNumber - 1] === 'okayu') {
+    if (names[orderNumber + 1] === 'okayu' || characterName === 'okayu' || names[orderNumber - 1] === 'okayu') {
         leftQuestionMark.style.transform = transformText;
         rightQuestionMark.style.transform = transformText;
         sign.style.transform = transformText;
