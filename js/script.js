@@ -13,7 +13,8 @@ var names = [
     'rushia',
     'nene',
     'okayu',
-    'marine'
+    'marine',
+    'kanata'
 ];
 var orderNumber = 0;
 var canClick = true;
