@@ -32,10 +32,12 @@ function loadingImages() {
         loadedShadow = false;
         character.style.transform = '';
         shadow.style.transform = '';
-        leftQuestionMark.style.transform = '';
-        rightQuestionMark.style.transform = '';
-        sign.style.transform = '';
-        signShadow.style.transform = '';
+        if (characterName === 'okayu') {
+            leftQuestionMark.style.transform = 'translateX(0)';
+            rightQuestionMark.style.transform = 'translateX(0)';
+            sign.style.transform = 'translateX(0)';
+            signShadow.style.transform = 'translateX(0)';
+        }
         character.addEventListener('transitionend', changeImages3);
     }
 }
@@ -44,28 +46,18 @@ function changeImages2() {
     character.src = "./img/" + characterName + "/character.png";
     shadow.alt = characterName + " - shadow";
     shadow.src = "./img/" + characterName + "/shadow.png";
-    if (characterName === 'okayu') {
-        leftQuestionMark.style.opacity = '1';
-        rightQuestionMark.style.opacity = '1';
-        sign.style.opacity = '1';
-        signShadow.style.opacity = '1';
-    }
-    else {
-        leftQuestionMark.style.opacity = '0';
-        rightQuestionMark.style.opacity = '0';
-        sign.style.opacity = '0';
-        signShadow.style.opacity = '0';
-    }
     character.removeEventListener('transitionend', changeImages2);
 }
 function changeImages1() {
     characterName = names[orderNumber];
     character.style.transform = transformText;
     shadow.style.transform = transformText;
-    leftQuestionMark.style.transform = transformText;
-    rightQuestionMark.style.transform = transformText;
-    sign.style.transform = transformText;
-    signShadow.style.transform = transformText;
+    if (names[orderNumber + 1] === 'okayu' || names[orderNumber] === 'okayu' || names[orderNumber - 1] === 'okayu') {
+        leftQuestionMark.style.transform = transformText;
+        rightQuestionMark.style.transform = transformText;
+        sign.style.transform = transformText;
+        signShadow.style.transform = transformText;
+    }
     character.addEventListener('transitionend', changeImages2);
 }
 function leftArrowClick() {
