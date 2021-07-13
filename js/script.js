@@ -29,12 +29,12 @@ function loadingImages() {
     if (loadedCharacter && loadedShadow) {
         loadedCharacter = false;
         loadedShadow = false;
-        character.style.transform = 'translateX(0)';
-        shadow.style.transform = 'translateX(0)';
-        leftQuestionMark.style.transform = 'translateX(0)';
-        rightQuestionMark.style.transform = 'translateX(0)';
-        sign.style.transform = 'translateX(0)';
-        signShadow.style.transform = 'translateX(0)';
+        character.style.transform = '';
+        shadow.style.transform = '';
+        leftQuestionMark.style.transform = '';
+        rightQuestionMark.style.transform = '';
+        sign.style.transform = '';
+        signShadow.style.transform = '';
         character.addEventListener('transitionend', changeImages3);
     }
 }
@@ -103,6 +103,6 @@ character.addEventListener('load', function () {
     loadingImages();
 });
 shadow.addEventListener('load', function () {
-    loadedCharacter = true;
+    loadedShadow = true;
     loadingImages();
 });
