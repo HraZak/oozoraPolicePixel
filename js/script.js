@@ -18,7 +18,6 @@ var names = [
 ];
 var orderNumber = 0;
 var canClick = true;
-var transformText = 'translateX(calc(+50vw + 50%))';
 var characterName = names[orderNumber];
 var loadedCharacter = false;
 var loadedShadow = false;
@@ -62,13 +61,13 @@ function changeImages2() {
 }
 function changeImages1() {
     characterName = names[orderNumber];
-    character.style.transform = transformText;
-    shadow.style.transform = transformText;
+    character.style.transform = 'translateX(calc(+50vw + 50%))';
+    shadow.style.transform = 'translateX(calc(+50vw + 50%))';
     if (names[orderNumber + 1] === 'okayu' || characterName === 'okayu' || names[orderNumber - 1] === 'okayu') {
-        leftQuestionMark.style.transform = transformText;
-        rightQuestionMark.style.transform = transformText;
-        sign.style.transform = transformText;
-        signShadow.style.transform = transformText;
+        leftQuestionMark.style.transform = 'translateX(calc(+50vw + 50%))';
+        rightQuestionMark.style.transform = 'translateX(calc(+50vw + 50%))';
+        sign.style.transform = 'translateX(calc(+50vw + 50%))';
+        signShadow.style.transform = 'translateX(calc(+50vw + 50%))';
     }
     character.addEventListener('transitionend', changeImages2);
 }
@@ -93,10 +92,10 @@ function rightArrowClick() {
     }
 }
 function keyboardCheck(event) {
-    if (event.key === 'ArrowLeft') {
+    if (event.key === 'ArrowLeft' || event.key === 'a') {
         leftArrowClick();
     }
-    else if (event.key === 'ArrowRight') {
+    else if (event.key === 'ArrowRight' || event.key === 'd') {
         rightArrowClick();
     }
 }
