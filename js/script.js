@@ -14,7 +14,8 @@ var names = [
     'nene',
     'okayu',
     'marine',
-    'kanata'
+    'kanata',
+    'pekora'
 ];
 var orderNumber = 0;
 var canClick = true;
