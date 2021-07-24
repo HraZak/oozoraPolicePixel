@@ -15,7 +15,10 @@ var names = [
     'okayu',
     'marine',
     'kanata',
-    'pekora'
+    'pekora',
+    'fubuki',
+    'miko',
+    'suisei'
 ];
 var orderNumber = 0;
 var canClick = true;
@@ -111,3 +114,25 @@ shadow.addEventListener('load', function () {
     loadedShadow = true;
     loadingImages();
 });
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchend', handleTouchEnd, false);
+var xDown = NaN;
+function handleTouchStart(event) {
+    xDown = event.touches[0].clientX;
+}
+;
+function handleTouchEnd(event) {
+    if (!xDown) {
+        return;
+    }
+    var xUp = event.touches[0].clientX;
+    var xDiff = xDown - xUp;
+    if (xDiff > 0) {
+        leftArrowClick();
+    }
+    else {
+        rightArrowClick();
+    }
+    xDown = NaN;
+}
+;
