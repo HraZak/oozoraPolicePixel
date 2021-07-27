@@ -18,7 +18,8 @@ var names = [
     'pekora',
     'fubuki',
     'miko',
-    'suisei'
+    'suisei',
+    'noel'
 ];
 var orderNumber = 0;
 var canClick = true;
